@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Launch XCloud</title>
+  <title>XCloud Embedded</title>
+  <style>
+    html, body, iframe {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <p>Launching Xbox Cloud Gaming…</p>
-  <script>
-    window.onload = () => {
-      const url = 'https://xbox.com/play';
-      // open in a new tab (no size/features → browser defaults to tab)
-      const newTab = window.open(url, '_blank');
-      // if the browser blocks it, show a manual link
-      if (!newTab) {
-        document.body.innerHTML = 
-          '<p>Pop-up blocked. <a href="' + url + 
-          '" target="_blank">Click here to launch Xbox Cloud Gaming.</a></p>';
-      }
-    };
-  </script>
+  <!-- iframe points at your Worker, not xbox.com directly -->
+  <iframe
+    src="https://xcloud-proxy.your-domain.workers.dev"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin">
+  </iframe>
 </body>
-</html
+</html>
