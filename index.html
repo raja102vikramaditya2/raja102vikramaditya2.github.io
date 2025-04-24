@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Launch XCloud</title>
+  <script>
+    window.onload = () => {
+      const url = 'https://xbox.com/play';
+      const popup = window.open(url, 'xcloud', 'width=1024,height=576');
+      if (!popup) window.location.href = url;
+    };
+  </script>
+</head>
+<body>
+  <p>Launching Xbox Cloud Gaming…</p>
+</body>
+</html>
