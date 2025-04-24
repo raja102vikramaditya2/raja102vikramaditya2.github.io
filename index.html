@@ -3,15 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Launch XCloud</title>
-  <script>
-    window.onload = () => {
-      const url = 'https://xbox.com/play';
-      const popup = window.open(url, 'xcloud', 'width=1024,height=576');
-      if (!popup) window.location.href = url;
-    };
-  </script>
 </head>
 <body>
   <p>Launching Xbox Cloud Gaming…</p>
+  <script>
+    window.onload = () => {
+      const url = 'https://xbox.com/play';
+      // open in a new tab (no size/features → browser defaults to tab)
+      const newTab = window.open(url, '_blank');
+      // if the browser blocks it, show a manual link
+      if (!newTab) {
+        document.body.innerHTML = 
+          '<p>Pop-up blocked. <a href="' + url + 
+          '" target="_blank">Click here to launch Xbox Cloud Gaming.</a></p>';
+      }
+    };
+  </script>
 </body>
-</html>
+</html
